@@ -3,7 +3,9 @@ node{
     git 'https://github.com/kumar-anil43/repo-1'
     }
     stage('Compile-Package'){
-      sh 'mvn package'
+      // Get maven home path
+      def mvnHOME = tool name: 'maven-3', type: 'maven'
+      sh "${mvnHOME}/bin/mvn package"
      }
      
      }
